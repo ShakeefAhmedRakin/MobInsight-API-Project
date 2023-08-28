@@ -121,9 +121,6 @@ const showDetails = async (id) => {
 const modalBox =
   document.getElementById("showDetailsModal").childNodes[1].childNodes;
 const showPhoneDetails = (details) => {
-  console.log(details);
-  console.log(modalBox);
-
   // GETTING INFORMATION
   details.mainFeatures.chipSet
     ? (chipsetName = details.mainFeatures.chipSet)
