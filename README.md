@@ -1,6 +1,6 @@
 # MobInsight API Project
 
-![image](https://github.com/ShakeefAhmedRakin/MobInsight-API-Project/assets/112527326/159af85a-5d3d-4473-aa8c-c48fe3f5193e)
+![chrome-capture-2023-7-29](https://github.com/ShakeefAhmedRakin/MobInsight-API-Project/assets/112527326/a3b23092-728f-4936-b73a-4dcf256d97e5)
 
 Welcome to the "MobInsight API Project" repository. This project demonstrates the use of an external API to fetch phone information from an API and dynamically display it on a website using Tailwind CSS and JavaScript.
 
@@ -15,7 +15,7 @@ Welcome to the "MobInsight API Project" repository. This project demonstrates th
 
 ## Overview
 
-The "MobInsight API Project" is designed to provide users with the ability to search for phone details using an external API. The project is built to enhance skills in working with APIs, handling dynamic content, and utilizing the Tailwind CSS framework for styling.
+The "MobInsight API Project" is designed to provide users with the ability to search for phone details using an external API. The project is for learning how to work with APIs and handling dynamic content.
 
 ## Technologies Used
 
@@ -26,13 +26,16 @@ The "MobInsight API Project" is designed to provide users with the ability to se
 
 ## Features
 
-- Search field to display phones based on name.
-- The fetched phone details will be shown once you press on the "Details" button. [WIP]
-- 'Show All' button to display the rest of the phones. [WIP]
+- Search field to display phones based on the search criteria.
+- The phone details will be shown once you press on search.
+- Further details will be shown once the "Details" button is pressed.
+- 'Show All' button to display the rest of the phones.
+
+_Note: The algorithm used to display and redisplay the product cards is not efficient and optimal. It was implemented this way to grasp some concepts of JavaScript._
 
 ## Demo
 
-Explore the current state of the project through the live demo [here](https://shakeefahmedrakin.github.io/MobInsight-API-Project).
+Explore the project through the live demo [here](https://shakeefahmedrakin.github.io/MobInsight-API-Project).
 
 ## Getting Started
 
