@@ -49,8 +49,8 @@ const displayPhone = (phones, isShowAll) => {
     <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">${phone.brand}</span>
     <br>
     <a
-      href="#"
-      class="inline-flex items-center mt-3 px-3 py-2 text-sm font-medium text-center text-white bg-tertiary rounded duration-300 hover:bg-blue-800"
+      onclick = "showDetails('${phone.slug}')"
+      class="hover:cursor-pointer inline-flex items-center mt-3 px-3 py-2 text-sm font-medium text-center text-white bg-tertiary rounded duration-300 hover:bg-blue-800"
     >
       Details
       <svg
@@ -93,7 +93,6 @@ const handleSearch = (isShowAll) => {
 
 // HANDLE SHOW ALL BUTTON
 const showAllButton = document.getElementById("btn-show-all");
-
 const handleShowAll = () => {
   handleSearch(true);
 };
@@ -105,4 +104,73 @@ const toggleSpinner = (isLoading) => {
   } else {
     spinner.classList.add("hidden");
   }
+};
+
+// HANDLE SHOW DETAILS BUTTON
+const showDetails = async (id) => {
+  // LOADING DATA
+  const response = await fetch(
+    `https://openapi.programming-hero.com/api/phone/${id}`
+  );
+  const data = await response.json();
+  const details = data.data;
+  showPhoneDetails(details);
+};
+
+// HANDLE MODAL DETAILS
+const modalBox =
+  document.getElementById("showDetailsModal").childNodes[1].childNodes;
+const showPhoneDetails = (details) => {
+  console.log(details);
+  console.log(modalBox);
+
+  // GETTING INFORMATION
+  details.mainFeatures.chipSet
+    ? (chipsetName = details.mainFeatures.chipSet)
+    : (chipsetName = "Unavailable");
+
+  // UPDATING IMAGE
+  modalBox[1].src = details.image;
+
+  // UPDATING BRAND
+  modalBox[3].innerText = details.brand;
+
+  // UPDATING TITLE
+  modalBox[5].innerText = details.name;
+
+  // UPDATING RELEASE DATE
+  modalBox[7].innerText = details.releaseDate;
+  // UPDATING FEATURES
+
+  // GETTING SENSOR LIST
+  const sensorList = details.mainFeatures.sensors;
+  let sensorString = "";
+
+  sensorList.forEach((sensor) => {
+    sensorString += ` ${sensor}<br>`;
+  });
+
+  modalBox[11].innerHTML = `
+  <h1 class="text-tertiary font-semibold">Chipset</h1>
+  <h1 class="col-span-2 text-gray-500 text-[15px]">
+    ${chipsetName}
+  </h1>
+  
+  <h1 class="text-tertiary font-semibold">Display Size</h1>
+  <h1 class="col-span-2 text-gray-500 text-[15px]">
+    ${details.mainFeatures.displaySize}
+  </h1>
+
+  <h1 class="text-tertiary font-semibold">Memory</h1>
+  <h1 class="col-span-2 text-gray-500 text-[15px]">
+    ${details.mainFeatures.memory}
+  </h1>
+
+  <h1 class="text-tertiary font-semibold">Sensors</h1>
+  <h1 class="col-span-2 text-gray-500 text-[15px]">
+    ${sensorString}
+  </h1>
+  `;
+
+  showDetailsModal.showModal();
 };
