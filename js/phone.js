@@ -1,15 +1,18 @@
-const loadPhone = async () => {
+// FETCHING DATA FROM API
+const loadPhone = async (searchText = "Iphone") => {
   const response = await fetch(
-    "https://openapi.programming-hero.com/api/phones?search=iphone"
+    `https://openapi.programming-hero.com/api/phones?search=${searchText}`
   );
   const data = await response.json();
   const phones = data.data;
-  console.log(phones);
   displayPhone(phones);
 };
 
+// DISPLAYING DATA FROM API
 const displayPhone = (phones) => {
   const phoneContainer = document.getElementById("phone-card-container");
+
+  phoneContainer.innerHTML = "";
 
   phones.forEach((phone) => {
     const phoneCard = document.createElement("div");
@@ -37,7 +40,7 @@ const displayPhone = (phones) => {
       href="#"
       class="inline-flex items-center mt-3 px-3 py-2 text-sm font-medium text-center text-white bg-tertiary rounded duration-300 hover:bg-blue-800"
     >
-      Read more
+      Details
       <svg
         class="w-3.5 h-3.5 ml-2"
         aria-hidden="true"
@@ -61,3 +64,13 @@ const displayPhone = (phones) => {
 };
 
 loadPhone();
+// HANDLE SEARCH
+const searchButton = document.getElementById("btn-search");
+const searchField = document.getElementById("field-search");
+const searchTitle = document.getElementById("result-title");
+
+searchButton.addEventListener("click", () => {
+  const searchTerm = searchField.value;
+  loadPhone(searchTerm);
+  searchTitle.innerText = searchTerm;
+});
