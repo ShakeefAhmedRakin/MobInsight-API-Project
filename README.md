@@ -32,7 +32,7 @@ The "MobInsight API Project" is designed to provide users with the ability to se
 
 ### Demo
 
-[link]
+Explore the current state of the project through the live demo <a href="https://shakeefahmedrakin.github.io/MobInsight-API-Project">here</a>.
 
 ### Getting Started
 
