@@ -22,6 +22,8 @@ The "MobInsight API Project" is designed to provide users with the ability to se
 - HTML5
 - Tailwind CSS
 - JavaScript (ES6)
+- [daisyUI (Modal)](https://daisyui.com/)
+- [Flowbite (Buttons)](https://flowbite.com/)
 - [External API](https://github.com/ProgrammingHero1/phone-hunter-api)
 
 ## Features
