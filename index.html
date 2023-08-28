@@ -25,7 +25,10 @@
           },
           extend: {
             colors: {
-              clifford: "#da373d",
+              primary: "#F6F6F6",
+              secondary: "#D6E4F0",
+              tertiary: "#1E56A0",
+              quaternary: "#163172",
             },
           },
         },
@@ -33,7 +36,24 @@
     </script>
   </head>
   <body class="font-poppins">
-    <header></header>
+    <!-- HEADER STARTS -->
+    <header class="bg-primary">
+      <!-- NAVIGATION BAR -->
+      <div class="container mx-auto px-4 md:px-28">
+        <nav class="flex justify-between items-center py-8">
+          <h1 class="font-bold text-2xl md:text-3xl">MobInsight</h1>
+          <div>
+            <button
+              class="font-semibold text-xl bg-tertiary text-white px-5 py-2 rounded-lg shadow-md hover:shadow-xl hover:scale-[1.02] duration-300"
+            >
+              Sign In
+            </button>
+          </div>
+        </nav>
+      </div>
+      <!-- BANNER -->
+    </header>
+    <!-- HEADER ENDS -->
     <main></main>
     <footer></footer>
   </body>
