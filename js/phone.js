@@ -84,7 +84,8 @@ const searchField = document.getElementById("field-search");
 const searchTitle = document.getElementById("result-title");
 const spinner = document.getElementById("loadingSpinner");
 
-const handleSearch = (isShowAll) => {
+const handleSearch = (e, isShowAll) => {
+  e.preventDefault();
   const searchTerm = searchField.value;
   toggleSpinner(true);
   loadPhone(searchTerm, isShowAll);
